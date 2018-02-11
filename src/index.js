@@ -15,7 +15,9 @@ import Create from './app/scenes/Create/';
 import Launch from './app/scenes/Launch/';
 
 axios.defaults.headers.common['Content-Type'] = 'application/json';
-axios.defaults.baseURL = 'http://127.0.0.1:5000/api/';
+axios.defaults.baseURL = 'http://' + SOCKETIP + '/api/';
+
+export const SOCKETIP = '192.168.1.23:5000';
 
 export const history = createBrowserHistory();
 

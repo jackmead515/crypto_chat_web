@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { history } from '../../../index.js';
+import { history, SOCKETIP } from '../../../index.js';
 import { connect } from 'react-redux';
 import io from 'socket.io-client';
 
@@ -53,7 +53,7 @@ class Create extends Component {
         }
       }, 1000);
 
-      let socket = io('http://127.0.0.1:5000/');
+      let socket = io('http://' + SOCKETIP + '/');
 
       socket.on('connect', (data) => {
         socket.emit('check', { room }, (data) => {

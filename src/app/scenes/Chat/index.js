@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { history } from '../../../index.js';
+import { history, SOCKETIP } from '../../../index.js';
 import io from 'socket.io-client';
 
 import { showEncryption } from '../../actions/settings';
@@ -44,7 +44,7 @@ class Chat extends Component {
     this.props.dispatch(showEncryption(false));
     this.setChatRuleBook();
 
-    this.socket = io('http://127.0.0.1:5000/');
+    this.socket = io('http://' + SOCKETIP + '/');
 
     this.socket.on('connect', (data) => {
 
